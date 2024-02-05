@@ -27,7 +27,6 @@ fruit_choice = streamlit.text_input('What fruit would you like information about
 streamlit.write('The user entered ', fruit_choice)
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 
-
 # takes the json of the response and normalize it
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # output it to the screen as a table
@@ -42,3 +41,6 @@ my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_rows)
 
+# prompt for fruit
+add_my_fruit  = streamlit.text_input('What fruit would you like to add?','jackfruit')
+streamlit.write('Thanks for adding ', add_my_fruit)
